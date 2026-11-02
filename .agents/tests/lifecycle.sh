@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
-template="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd -P)"
+template="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd -P)"
 tmp="$(mktemp -d)"
 # macOS /var is a symlink; bootstrap deliberately rejects symlink components.
 tmp="$(cd "$tmp" && pwd -P)"

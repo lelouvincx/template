@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Test-only supported CLI boundary. Reject any unexpected command or flag.
+# Test-only Amp CLI boundary. Reject any unexpected command or flag.
 set -euo pipefail
 echo "$*" >>"$MOCK/log"
 [ "$1" = projects ]; shift
