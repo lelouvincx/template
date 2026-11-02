@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
-template="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd -P)"
+template="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd -P)"
 tmp="$(mktemp -d)"
 tmp="$(cd "$tmp" && pwd -P)"
 trap 'rm -rf "$tmp"' EXIT
@@ -8,7 +8,7 @@ export HOME="$tmp/home" GIT_CONFIG_NOSYSTEM=1 GIT_CONFIG_GLOBAL=/dev/null
 export MOCK="$tmp/mock" AGENT_SKILLS_DIR="$tmp/agent-skills"
 mkdir -p "$HOME" "$MOCK" "$tmp/bin" "$tmp/generated" "$AGENT_SKILLS_DIR/.agents" "$AGENT_SKILLS_DIR/skills/shipping-personal-projects"
 cp -R "$template/.agents" "$tmp/generated/"
-cp "$template/tests/mock-amp.sh" "$tmp/bin/amp"
+cp "$template/.agents/tests/mock-amp.sh" "$tmp/bin/amp"
 chmod +x "$tmp/bin/amp"
 export PATH="$tmp/bin:$PATH"
 git -C "$tmp/generated" init -q

@@ -8,6 +8,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Check shell syntax
-        run: for file in .agents/* tests/*.sh; do bash -n "$file"; done
-      - run: bash tests/lifecycle.sh
-      - run: bash tests/configure-amp.sh
+        run: for file in .agents/* .agents/tests/*.sh; do test -f "$file" || continue; bash -n "$file"; done
+      - run: bash .agents/tests/lifecycle.sh
+      - run: bash .agents/tests/configure-amp.sh
